@@ -45,16 +45,17 @@ namespace ConsoleGundamFighter
                 "Every wall of the ship is insanely clean and there seems to always be a faint humming that never\n" +
                 "gets closer or further away, no matter how deep into the ship you go.\n" +
                 "\n" +
-                "\"This is the hanger! you will be outfitted with a standard GM unit for now.\n" +
-                "As we are not sure your combat effectiveness.\n" +
-                "Later will may give you an updated suit and or weapons to use on your journey.\"\n" +
+                "\"This is the training room! Here we will test your combat effectiveness with our virtual GF (Gundam Fighter) machine!\n" +
+                "\"You will go through three battles against superior adaptaple AI\n" +
+                "\"After you go through this training you will be given a mobile suit to aid us our journey!\"\n" +
+                "\n\"Well what are you waiting for!? Hop to it!\n" +
                 "\n" +
-                "All of a sudden the ship starts shaking violently. You look up and see the red flashing of the emergency lights\n" +
-                "The sound of the sirens cut through the air. The air suddenly feels somber as the crew readies for another attack.\n" +
-                "You rush to the GM unit as Capt. Bright yells something to you that you cant make out through all the noise...");
+                "\n" +
+                "You climb into the GF machine and it completely seals you inside, mimicing the cockpit of a mobile suit...");
 
 
-            Console.Write("Press any key to continue");
+
+            Console.Write("\n\nPress any key to continue");
             Console.ReadKey();
             Console.Clear();
             //TODO finish good introduction
@@ -82,6 +83,9 @@ namespace ConsoleGundamFighter
                 {
                     //TODO Gameplay Menu
                     #region Menu
+
+                    //TODO select mobile suit menu
+
                     Console.Write("\nWhat is your action Pilot?!\n" +
                        "W) Attack with Beam Saber\n" +
                        "A) Attack with Beam Rifle\n" +
@@ -130,39 +134,8 @@ namespace ConsoleGundamFighter
                         //Possible only have to search after choosing dialogue option!
 
                         case ConsoleKey.X:
-                            Console.WriteLine("If you leave now the White Base may be destroyed!");
-
-                            #region Abandon menu
-
-                            bool abandon = false;
-                            bool stay = false;
-                            do
-                            {
-                                Console.Write("\nAre you sure you wish to abandon the White Base and its crew???\n" +
-                                "A) I don't care about them!\n" +
-                                "B) I would never!\n");
-                                ConsoleKey userChoice2 = Console.ReadKey(true).Key;
-                                Console.Clear();
-
-                                switch (userChoice2)
-                                {
-                                    case ConsoleKey.A:
-                                        Console.WriteLine("And you call yourself a man?! Coward!");
-                                        abandon = true;
-                                        break;
-
-                                    case ConsoleKey.B:
-                                        Console.WriteLine("Dont scare me like that!");
-                                        stay = true;
-                                        break;
-
-                                    default:
-                                        break;
-                                }
-                            } while (!stay && !abandon);
-
-                            #endregion
-                            //TODO Make game break main loop when player selects abandon.
+                            Console.WriteLine("Thank your for training today! Results posted below:\n\n");
+                            exit = true;
 
                             break;
                         default:
@@ -191,11 +164,12 @@ namespace ConsoleGundamFighter
         {
             string[] rooms =
             {
+                
                 "You look from your mobile suit's monitor and see the black hue of space surrounding you.\n" +
                 "You float in Zero-G staring at the stars, Earth glimmering from the corner of your eyes.\n" +
                 "From afar you see a dashing among the stars, similar almost to a comet in passing... ",
 
-                ""
+                
             };
 
             Random rand = new Random();
