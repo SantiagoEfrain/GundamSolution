@@ -1,9 +1,13 @@
-﻿namespace GundamFighterLibrary
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GundamFighterLibrary
 {
-    public class MobileSuits
-
+    public class MobileSuit
     {
-
         //Fields
         private string _name;
         private int _maxLife;
@@ -50,7 +54,7 @@
 
         //Constructors
 
-        public MobileSuits(string name, int maxLife, int life, int hitChance, int resistance)
+        public MobileSuit(string name, int maxLife, int life, int hitChance, int resistance)
         {
             Name = name;
             MaxLife = maxLife;
@@ -58,10 +62,12 @@
             HitChance = hitChance;
             Resistance = resistance;
         }
-        public MobileSuits()
+        public MobileSuit()
         {
 
         }
+
+
 
         //Methods
 
@@ -73,14 +79,18 @@
                 $"Block: {Resistance}";
         }
 
-        public int CalcResistance()
+        public virtual int CalcResistance()
         {
             return Resistance;
         }
-        public int CalcHitChance()
+        public virtual int CalcHitChance()
         {
             return HitChance;
         }
-        public int CalcDamage() { return 0; }
+        public virtual int CalcDamage() { return 0; }
+
+
+
     }
 }
+

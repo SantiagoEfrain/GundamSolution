@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace GundamFighterLibrary
 {
-    public enum WeaponTypes
+    public enum MSEnums
     {
-        Bazooka,
-        Machine_Gun,
-        Beam_Tomahawk,
-        Beam_Pistol,
-        Beam_Rifle,
-        Beam_Saber
+        GM,
+        Guncannon,
+        RX78
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace GundamFighterLibrary
 {
-    public enum MS
+    public enum EnemyMSEnum
     {
         Zaku_II,
-        GM_II,
-        Gundam_RX_78,
+        DOM_Trooper,
+        Asshimar
     }
 }

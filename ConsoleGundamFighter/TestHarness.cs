@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GundamFighterLibrary;
+using GundamFighterLibrary.CombatFiles;
 using SignatureLibrary;
 
 namespace ConsoleGundamFighter
@@ -13,16 +14,26 @@ namespace ConsoleGundamFighter
         static void Main(string[] args)
         {
 
-            Weapons w1 = new Weapons("Beam Pistol", 20, 10);
-            Console.WriteLine();
-            Console.WriteLine(w1);
+            Player playerGM = new Player("GM", 10, 10, 10, 80, MSEnums.GM);
+            Player playerGuncannon = new Player("Guncannon", 10, 10, 10, 80, MSEnums.Guncannon);
+            Player playerRX78 = new Player("Gundam RX-78", 10, 10, 10, 80, MSEnums.RX78);
 
-            MobileSuits ms1 = new MobileSuits("GM", 80, 80, 60, 25);
+
+            Console.WriteLine(playerGM);
             Console.WriteLine();
-            Console.WriteLine(ms1);
-            Console.WriteLine("CalcResistance: " + ms1.CalcResistance());
-            Console.WriteLine("CalcHitChance: " + ms1.CalcHitChance());
-            Console.WriteLine("CalcDamage: " + ms1.CalcDamage());
+            Console.WriteLine(playerGuncannon);
+            Console.WriteLine();
+            Console.WriteLine(playerRX78);
+            Console.WriteLine();
+
+            EnemyMobileSuits enemy = EnemyMobileSuits.GetSuit();
+            Console.WriteLine(enemy);
+
+            BeamSaber.DoBattle(playerGM, enemy); 
+
+
+
+
 
 
         }
