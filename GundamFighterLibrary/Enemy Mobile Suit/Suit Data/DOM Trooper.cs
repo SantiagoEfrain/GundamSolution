@@ -10,9 +10,11 @@ namespace GundamFighterLibrary
     public class DOMTrooper : EnemyMobileSuits
     {
 
-        public DOMTrooper(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description) : base(name, hitChance, block, maxLife, maxDamage, minDamage)
-        {
+        public bool IsTriStar { get; set; }
 
+        public DOMTrooper(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description, bool isTriStar) : base(name, hitChance, block, maxLife, maxDamage, minDamage)
+        {
+            IsTriStar = isTriStar;
         }
 
         public DOMTrooper()
@@ -24,6 +26,22 @@ namespace GundamFighterLibrary
             HitChance = 55;
             Block = 25;
             MinDamage = 35;
+            IsTriStar = true;
         }
+
+        public override int CalcDamage()
+        {
+            int calculatedDamage = Damage;
+
+            //Apply a 50% increase to the Rabbit's block if it's fluffy
+            if (IsTriStar)
+            {
+                calculatedDamage += calculatedDamage / 2;
+            }
+
+            return calculatedDamage;
+        }
+
+
     }
 }
