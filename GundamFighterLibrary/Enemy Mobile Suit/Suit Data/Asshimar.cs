@@ -9,9 +9,11 @@ namespace GundamFighterLibrary
     public class Asshimar : EnemyMobileSuits
     {
 
-        public Asshimar(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description) : base(name, hitChance, block, maxLife, maxDamage, minDamage)
-        {
+        public bool IsBigSuit { get; set; }
 
+        public Asshimar(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description, bool isBigSuit) : base(name, hitChance, block, maxLife, maxDamage, minDamage)
+        {
+            IsBigSuit = isBigSuit;
         }
 
         public Asshimar()
@@ -23,6 +25,21 @@ namespace GundamFighterLibrary
             HitChance = 80;
             Block = 18;
             MinDamage = 35;
+            IsBigSuit = true;
         }
+
+        public override int CalcBlock()
+        {
+            int calculatedBlock = Block;
+
+            //Apply a 50% increase to the Rabbit's block if it's fluffy
+            if (IsBigSuit)
+            {
+                calculatedBlock += calculatedBlock / 2;
+            }
+
+            return calculatedBlock;
+        }
+
     }
 }
